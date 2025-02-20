@@ -1,12 +1,29 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <Nav/>
+    <router-view />
+  </div>
 </template>
 
+<script setup>
+import Nav from './components/Nav.vue';
+
+
+</script>
+
 <style lang="scss">
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow: hidden;
+}
+@font-face {
+  font-family: 'Jersey';
+  src: url(./assets/Font/Jersey10-Regular.ttf);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
