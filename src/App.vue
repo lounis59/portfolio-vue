@@ -1,14 +1,17 @@
 <template>
   <div>
     <Nav/>
+    <BackBtn v-if="route.fullPath != '/'"/>
     <router-view />
   </div>
 </template>
 
 <script setup>
 import Nav from './components/Nav.vue';
+import BackBtn from './components/BackBtn.vue';
+import { useRoute } from 'vue-router';
 
-
+const route = useRoute()
 </script>
 
 <style lang="scss">
@@ -18,7 +21,8 @@ import Nav from './components/Nav.vue';
   box-sizing: border-box;
 }
 body{
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #dddddd;
 }
 @font-face {
   font-family: 'Jersey';

@@ -7,7 +7,7 @@
 
      <img src="img/donjonPorte.png" alt="donjon.png" class="content door" >
      <div class="logoContaineur">
-      <div class="iconsContaineur">
+      <div class="iconsContaineur" @click="goCv">
         <ReProfileLine/>
         <p>C.V</p>
       </div>
@@ -39,11 +39,13 @@ import gsap from 'gsap';
 import CSSPlugin from 'gsap/CSSPlugin';
 import { onMounted } from 'vue';
 import { ReProfileLine } from '@kalimahapps/vue-icons';
+import { useRoute, useRouter } from 'vue-router';
 
 gsap.registerPlugin(CSSPlugin)
 const timeline = gsap.timeline()
 const screenSizeW = window.innerWidth
-const screenSizeH = window.innerHeight
+const router = useRouter()
+const route = useRoute()
 const zoom = (statue) => {
  if (statue) {
   gsap.to('.door', {scale: 1.8, duration:1})
@@ -59,7 +61,11 @@ const zoom = (statue) => {
 }
 }
 const flowerRain = () => {
-  for (let i = 0; i < 20; i++) {
+  const home = document.querySelector('.home')
+  if ( !home ) {
+    return;
+  } 
+  for (let i = 0; i < 15; i++) {
     let img = document.createElement('img');
     img.setAttribute('src', 'img/sakuraFeuille.png');
     img.style.width = `${Math.floor(Math.random() * 15) + 10}px`; // Taille entre 10px et 25px
@@ -68,8 +74,7 @@ const flowerRain = () => {
     img.style.top = '-50px'; // Départ en haut de l'écran
     img.style.opacity = Math.random() * 0.5 + 0.5; // Transparence légère (0.5 - 1)
 
-    document.body.appendChild(img);
-
+    home.appendChild(img);
     let duration = Math.random() * 5 + 5; // Durée de chute entre 5 et 10 secondes
     let delay = Math.random() * 3; // Délai aléatoire avant le début
 
@@ -86,7 +91,7 @@ const flowerRain = () => {
     // Supprimer l'élément après un cycle pour éviter une surcharge mémoire
     setTimeout(() => {
       img.remove();
-    }, (duration + delay) * 1000);
+    }, (duration + delay) * 5500);
   }
 };
 const samouraiMove = () => {
@@ -95,12 +100,14 @@ const samouraiMove = () => {
     x: -200, 
     duration:0.17, 
     onUpdate:() => {
+      console.log('AAAAAAAA')
       document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
   }},{x:-190})
   timeline.from('.samourai',{
     x: -190,
     duration:0.17, 
     onUpdate:() => {
+      console.log('AAAAAAAA')
       document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
     }
   })
@@ -482,11 +489,18 @@ const samouraiMove = () => {
       document.querySelector('.samourai').setAttribute("src" , "img/samourai/Idle.png")
   }})
   }
+}
 
+const goCv = () => {
+  timeline.pause()
+  
+  router.push('/cv')
 }
 onMounted(() => {
-samouraiMove()
+  console.log(route.name)
+  samouraiMove()
 setInterval(flowerRain, 2000);
+
 })
 </script>
 
