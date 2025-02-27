@@ -2,19 +2,19 @@
 <div class="main">
   <AkThreeLineHorizontal class="content btn" v-if="!visible" @click="show"/>
   <p class="content opacity" v-if="visible">HABROUCHE Lounis</p>
-  <div class="containeur opacity" v-if="visible">
+  <div class="containeurNav opacity" v-if="visible">
     <FlHeadsetVr/>
     <p>A propos</p>
   </div>
-  <div class="containeur opacity" v-if="visible">
+  <div class="containeurNav opacity" v-if="visible" @click="goCV">
     <ReProfileLine/>
     <p>C.V</p>
   </div>
-  <div class="containeur opacity" v-if="visible">
+  <div class="containeurNav opacity" v-if="visible">
     <FlContactCard/>
     <p>info</p>
   </div>
-  <div class="containeur opacity" v-if="visible">
+  <div class="containeurNav opacity" v-if="visible">
     <ClBook/>
     <p>Compétence</p>
   </div>
@@ -32,12 +32,16 @@ import CSSPlugin from 'gsap/CSSPlugin';
 import { ReProfileLine } from '@kalimahapps/vue-icons';
 import { ClBook } from '@kalimahapps/vue-icons';
 import { FlHeadsetVr } from '@kalimahapps/vue-icons';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import samouraiMove from '@/pipe/samourai';
 
 
 gsap.registerPlugin(CSSPlugin)
-
+const router = useRouter()
 const visible = ref(false)
-
+const store = useStore()
+const timeline = store.getters.getTimeline
 const show = () => {
    console.log(visible.value);
    
@@ -53,6 +57,12 @@ const show = () => {
   } else {
     visible.value = false
   }
+}
+const goCV = () => {
+  router.push('/cv')
+  samouraiMove(true)
+  
+  timeline
 }
 </script>
 
@@ -82,13 +92,14 @@ const show = () => {
   .opacity{
     opacity: 1;
   }
-  .containeur{
+  .containeurNav{
     display: flex;
     font-family: 'jersey';
     padding: 5px;
     background: rgba(79, 79, 80, 0.705);
     border-radius: 5px;
     margin: 10px;
+    cursor: pointer;
     p{
       margin-left: 10px;
     }

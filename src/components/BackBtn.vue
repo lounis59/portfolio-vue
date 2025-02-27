@@ -39,6 +39,7 @@ const stopPush = () => {
   box-shadow:  10px 10px 20px #bebebe,
               -10px -10px 20px #ffffff;
   color: goldenrod;
+  cursor: pointer;
 }
 .btnPush{
   border-radius: 50%;
@@ -50,5 +51,6 @@ const stopPush = () => {
   background: linear-gradient(145deg, #cacaca, #f0f0f0);
   box-shadow:  10px 10px 20px #bebebe,
               -10px -10px 20px #ffffff;
+  cursor: pointer;
 }
 </style>

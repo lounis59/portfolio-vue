@@ -37,15 +37,17 @@ import { BsJoystick } from '@kalimahapps/vue-icons';
 import { FlContactCard } from '@kalimahapps/vue-icons';
 import gsap from 'gsap';
 import CSSPlugin from 'gsap/CSSPlugin';
-import { onMounted } from 'vue';
+import { nextTick, onMounted } from 'vue';
 import { ReProfileLine } from '@kalimahapps/vue-icons';
 import { useRoute, useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import samouraiMove from '@/pipe/samourai';
 
 gsap.registerPlugin(CSSPlugin)
 const timeline = gsap.timeline()
-const screenSizeW = window.innerWidth
 const router = useRouter()
 const route = useRoute()
+const store = useStore()
 const zoom = (statue) => {
  if (statue) {
   gsap.to('.door', {scale: 1.8, duration:1})
@@ -65,7 +67,7 @@ const flowerRain = () => {
   if ( !home ) {
     return;
   } 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 10; i++) {
     let img = document.createElement('img');
     img.setAttribute('src', 'img/sakuraFeuille.png');
     img.style.width = `${Math.floor(Math.random() * 15) + 10}px`; // Taille entre 10px et 25px
@@ -91,417 +93,25 @@ const flowerRain = () => {
     // Supprimer l'élément après un cycle pour éviter une surcharge mémoire
     setTimeout(() => {
       img.remove();
-    }, (duration + delay) * 5500);
+    }, (duration + delay) * 1500);
   }
 };
-const samouraiMove = () => {
-  if (screenSizeW <= 430) {
-    timeline.fromTo('.samourai',{
-    x: -200, 
-    duration:0.17, 
-    onUpdate:() => {
-      console.log('AAAAAAAA')
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }},{x:-190})
-  timeline.from('.samourai',{
-    x: -190,
-    duration:0.17, 
-    onUpdate:() => {
-      console.log('AAAAAAAA')
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -180, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -170,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -160, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -150,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -140, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -130,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -120, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -110, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -100, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -90, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -80, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -70, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -60, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -50, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -40, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -30, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -20, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -10, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.to('.samourai',{
-    duration:0.17, 
-    x: 0, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Idle.png")
-  }})
-  } else if (screenSizeW >= 1000) {
-    timeline.fromTo('.samourai',{
-    x: -400, 
-    duration:0.17, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }},{x:-390})
-  timeline.from('.samourai',{
-    x: -390,
-    duration:0.17, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -380, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -370,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -360, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -350,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -340, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -330,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -320, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -310, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  
-    timeline.from('.samourai',{
-    x: -300, 
-    duration:0.17, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    x: -290,
-    duration:0.17, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -280, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -270,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -260, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -250,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -240, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -230,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -220, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -210, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -200, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    x: -190,
-    duration:0.17, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -180, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -170,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -160, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -150,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -140, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -130,
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-    }
-  })
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -120, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -110, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -100, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -90, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -80, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -70, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -60, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -50, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -40, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -30, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -20, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk.png")
-  }})
-  timeline.from('.samourai',{
-    duration:0.17, 
-    x: -10, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Walk (1).png")
-  }})
-  timeline.to('.samourai',{
-    duration:0.17, 
-    x: 0, 
-    onUpdate:() => {
-      document.querySelector('.samourai').setAttribute("src" , "img/samourai/Idle.png")
-  }})
-  }
-}
+
 
 const goCv = () => {
-  timeline.pause()
+  samouraiMove(true)
   
   router.push('/cv')
 }
+if (route.fullPath != '/') {}
 onMounted(() => {
-  console.log(route.name)
   samouraiMove()
-setInterval(flowerRain, 2000);
-
+  console.log(route.name)
+  
+  setInterval(flowerRain, 2000);
+  
 })
+
 </script>
 
 <style lang="scss" scoped>
@@ -543,7 +153,7 @@ setInterval(flowerRain, 2000);
     max-height: 200px;
     overflow: hidden;
     top: 45%;
-    left: 40%;
+    left: 47%;
     scale: 0;
     
     .iconsContaineur{
