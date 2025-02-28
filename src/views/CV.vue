@@ -89,6 +89,29 @@ onMounted(() => {
 .cv{
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .photo{
+    width: 150px;
+    height: 150px;
+    align-self: flex-end;
+    margin-top: 50px;
+    margin-right: 50px;
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+  
+}
+@media  screen and (min-width: 1000px) {
+  .cv{
+  width: 100vw;
+  height: 100vh;
   padding: 200px;
   display: grid;
   grid-template: 4/3;
@@ -204,6 +227,7 @@ onMounted(() => {
     }
   }
   
+}
 }
 
 </style>

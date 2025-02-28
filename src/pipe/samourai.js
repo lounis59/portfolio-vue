@@ -10,10 +10,10 @@ const samouraiMove = (bool) => {
   let x = -400
   let x2 = -390
   if (bool) timeline.pause();
-   if (screenSizeW <= 430) {
-      x = -300
-      x2 = -290
-     for (let index = 0; index < 19; index++) {
+   if (screenSizeW <= 435) {
+      x = -150
+      x2 = -140
+     for (let index = 0; index < 17; index++) {
         timeline.from('.samourai',{
         x: x + index, 
         duration:0.15, 
@@ -32,7 +32,6 @@ const samouraiMove = (bool) => {
       
     }
    timeline.to('.samourai',{
-     duration:0.17, 
      x: 0, 
      onUpdate:() => {
        document.querySelector('.samourai').setAttribute("src" , "img/samourai/Idle.png")
@@ -42,13 +41,13 @@ const samouraiMove = (bool) => {
     for (let index = 0; index < 29; index++) {
         timeline.from('.samourai',{
         x: x + index, 
-        duration:0.15, 
+        duration:0.14, 
         onUpdate:() => {
           document.querySelector('.samourai').setAttribute("src" , img1)
       }})
       timeline.from('.samourai',{
         x: x2 + index, 
-        duration:0.15, 
+        duration:0.14, 
         onUpdate:() => {
           document.querySelector('.samourai').setAttribute("src" , img2)
       }})
