@@ -1,7 +1,5 @@
 <template>
-<div>
   <BsArrowLeftCircle ref="btnRef" class="btn" @click="back" @mousedown="pushBtn" @mouseup="stopPush"/>
-</div>
 </template>
 
 <script setup>
