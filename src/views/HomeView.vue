@@ -93,7 +93,7 @@ const flowerRain = () => {
     // Supprimer l'élément après un cycle pour éviter une surcharge mémoire
     setTimeout(() => {
       img.remove();
-    }, (duration + delay) * 1500);
+    }, (duration + delay) * 1000);
   }
 };
 
@@ -108,7 +108,7 @@ onMounted(() => {
   samouraiMove()
   console.log(route.name)
   
-  setInterval(flowerRain, 2000);
+  setInterval(flowerRain, 3000);
   
 })
 

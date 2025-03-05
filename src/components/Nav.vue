@@ -1,25 +1,29 @@
 <template>
-<div class="main">
-  <AkThreeLineHorizontal class="content btn" v-if="!visible" @click="show"/>
-  <p class="content opacity" v-if="visible">HABROUCHE Lounis</p>
-  <div class="containeurNav opacity" v-if="visible">
-    <FlHeadsetVr/>
-    <p>A propos</p>
+  <div>
+    <div class="burgerBtn">
+      <AkThreeLineHorizontal class="content btn" v-if="!visible" @click="show"/>
+    </div>
+    <div class="main">
+      <p class="content opacity" v-if="visible">HABROUCHE Lounis</p>
+      <div class="containeurNav opacity" v-if="visible">
+        <FlHeadsetVr/>
+        <p>A propos</p>
+      </div>
+      <div class="containeurNav opacity" v-if="visible" @click="goCV">
+        <ReProfileLine/>
+        <p>C.V</p>
+      </div>
+      <div class="containeurNav opacity" v-if="visible">
+        <FlContactCard/>
+        <p>info</p>
+      </div>
+      <div class="containeurNav opacity" v-if="visible">
+        <ClBook/>
+        <p>Compétence</p>
+      </div>
+      <AkCross @click="show" v-if="visible" class="content opacity btn"/>
+    </div>
   </div>
-  <div class="containeurNav opacity" v-if="visible" @click="goCV">
-    <ReProfileLine/>
-    <p>C.V</p>
-  </div>
-  <div class="containeurNav opacity" v-if="visible">
-    <FlContactCard/>
-    <p>info</p>
-  </div>
-  <div class="containeurNav opacity" v-if="visible">
-    <ClBook/>
-    <p>Compétence</p>
-  </div>
-  <AkCross @click="show" v-if="visible" class="content opacity btn"/>
-</div>
 </template>
 
 <script setup>
@@ -52,10 +56,13 @@ const show = () => {
       gsap.from('.opacity',{
         opacity: 0 , duration: 0.5 , x:-200 , stagger: 0.2
       })
-      
+      gsap.to('.main',{opacity: 1})
     })
   } else {
     visible.value = false
+    nextTick(() => {
+      gsap.to('.main',{opacity: 0})
+    })
   }
 }
 const goCV = () => {
@@ -67,10 +74,24 @@ const goCV = () => {
 </script>
 
 <style lang="scss" scoped>
+.burgerBtn{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 4;
+  .btn{
+    color: goldenrod;
+    font-size: 3rem;
+  }
+}
+.burgerBtn:hover{
+  cursor: pointer;
+}
 .main{
   position: fixed;
   left: 0;
   background: rgb(15, 21, 48);
+  opacity: 0;
   width: max-content;
   max-width: 130px;
   height: 100vh;
@@ -86,9 +107,6 @@ const goCV = () => {
     margin-bottom: 20px;
     font-family: 'Jersey';
   }
-  .btn{
-    cursor: pointer;
-  }
   .opacity{
     opacity: 1;
   }
@@ -103,6 +121,9 @@ const goCV = () => {
     p{
       margin-left: 10px;
     }
+  }
+  .btn{
+    cursor: pointer;
   }
 }
 </style>

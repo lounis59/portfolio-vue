@@ -97,6 +97,7 @@ onMounted(() => {
     justify-content: space-around;
     align-items: center;
     padding: 5px;
+    font-family: 'jersey';
     .photo{
       width: 150px;
       height: 150px;
