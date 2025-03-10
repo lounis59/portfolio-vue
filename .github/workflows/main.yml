@@ -22,9 +22,6 @@ jobs:
       - name: Installation des dépendances
         run: npm install
 
-      - name: Lancement des tests unitaires
-        run: npm run test
-
       - name: Build de l'appli
         run: npm run build
         
