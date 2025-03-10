@@ -1,0 +1,50 @@
+name: Ma super CI/CD
+
+# La CI s'exécute au push sur la branche main
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  # Job de build et test
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Configurer node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Lancement des tests unitaires
+        run: npm run test
+
+      - name: Build de l'appli
+        run: npm run build
+        
+      - name: Upload du dossier dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+
+  # Job de déploiement
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    name: Deploy my nice code
+    steps:
+    - name: Deploy to OVH hosting
+      uses: pitscher/ovh-deploy-hosting-action@v1
+      env:
+        OVH_HOSTING_USER: ${{ secrets.OVH_HOSTING_USER }}
+        OVH_HOSTING_PASSWORD: ${{ secrets.OVH_HOSTING_PASSWORD }}
+        OVH_HOSTING_DOMAIN: ftp.cluster029.hosting.ovh.net
+        REPOSITORY_NAME: portfolio-vue
+        REPOSITORY_URL: https://github.com/lounis59/portfolio-vue.git
