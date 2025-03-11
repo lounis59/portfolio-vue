@@ -45,7 +45,9 @@ jobs:
       with:
           name: dist
           path: ./dist
-
+    - name: Test
+      run: ls -la
+      
     - name: Déploiement via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
