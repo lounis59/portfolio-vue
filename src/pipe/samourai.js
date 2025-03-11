@@ -10,7 +10,7 @@ const samouraiMove = (bool) => {
   let x = -400
   let x2 = -390
   if (bool) timeline.pause();
-   if (screenSizeW <= 435) {
+   if (screenSizeW <= 500) {
       x = -150
       x2 = -140
      for (let index = 0; index < 17; index++) {

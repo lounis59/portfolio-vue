@@ -86,7 +86,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width:430px) {
+@media screen and (max-width:500px) {
   
   .cv{
     width: 100vw;
