@@ -46,11 +46,11 @@ jobs:
           name: dist
           path: ./dist
 
-    - name: Deploy to OVH hosting
-      uses: pitscher/ovh-deploy-hosting-action@v1
-      env:
-        OVH_HOSTING_USER: ${{ secrets.OVH_HOSTING_USER }}
-        OVH_HOSTING_PASSWORD: ${{ secrets.OVH_HOSTING_PASSWORD }}
-        OVH_HOSTING_DOMAIN: ftp.cluster029.hosting.ovh.net
-        REPOSITORY_NAME: portfolio-vue
-        REPOSITORY_URL: https://github.com/lounis59/portfolio-vue.git
+    - name: Déploiement via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+      with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
