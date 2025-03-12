@@ -27,9 +27,10 @@ const stopPush = () => {
 
 <style lang="scss" scoped>
 .btn{
-  position: absolute;
-  top: 5%;
-  left: 20%;
+  position: relative;
+  margin: 50px;
+  top: 0%;
+  left: 50px;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -40,10 +41,11 @@ const stopPush = () => {
   cursor: pointer;
 }
 .btnPush{
+  margin: 50px;
   border-radius: 50%;
-  position: absolute;
-  top: 5%;
-  left: 20%;
+  position: relative;
+  top: 0%;
+  left: 50px;
   width: 35px;
   height: 35px;
   background: linear-gradient(145deg, #cacaca, #f0f0f0);

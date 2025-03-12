@@ -17,7 +17,7 @@
         <FlContactCard/>
         <p>info</p>
       </div>
-      <div class="containeurNav opacity" v-if="visible">
+      <div class="containeurNav opacity" v-if="visible" @click="goComp">
         <ClBook/>
         <p>Compétence</p>
       </div>
@@ -45,7 +45,6 @@ gsap.registerPlugin(CSSPlugin)
 const router = useRouter()
 const visible = ref(false)
 const store = useStore()
-const timeline = store.getters.getTimeline
 const show = () => {
    console.log(visible.value);
    
@@ -68,9 +67,12 @@ const show = () => {
 const goCV = () => {
   router.push('/cv')
   samouraiMove(true)
-  
-  timeline
 }
+const goComp = () => {
+  router.push('/Competence')
+  samouraiMove(true)
+}
+
 </script>
 
 <style lang="scss" scoped>

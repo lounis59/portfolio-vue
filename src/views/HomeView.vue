@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <BackBtn v-if="route.fullPath != '/'"/>
     <h1 class="content">Bienvenue !</h1>
     <img src="img/samourai/Idle.png" alt="samourai.png" class="samourai">
    <div class="containeur" @mouseenter="zoom(true)" 
@@ -11,9 +12,9 @@
         <ReProfileLine/>
         <p>C.V</p>
       </div>
-      <div class="iconsContaineur">
-        <FlContactCard class="icons"/>
-        <p>Informations</p>
+      <div class="iconsContaineur" @click="goComp">
+        <CdTools class="icons"/>
+        <p>Compétences</p>
 
       </div>
       <div class="iconsContaineur">
@@ -42,6 +43,11 @@ import { ReProfileLine } from '@kalimahapps/vue-icons';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import samouraiMove from '@/pipe/samourai';
+import { CdTools } from '@kalimahapps/vue-icons';
+import BackBtn from '../components/BackBtn.vue';
+
+
+
 
 gsap.registerPlugin(CSSPlugin)
 const timeline = gsap.timeline()
@@ -103,6 +109,10 @@ const goCv = () => {
   
   router.push('/cv')
 }
+const goComp = () => {
+  router.push('/Competence')
+  samouraiMove(true)
+}
 if (route.fullPath != '/') {}
 onMounted(() => {
   samouraiMove()
@@ -153,7 +163,7 @@ onMounted(() => {
     max-height: 200px;
     overflow: hidden;
     top: 45%;
-    left: 47%;
+    left: 40%;
     scale: 0;
     
     .iconsContaineur{
