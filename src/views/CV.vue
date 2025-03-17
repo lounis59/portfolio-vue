@@ -1,5 +1,6 @@
 <template>
 <div class="cv">
+  <BackBtn v-if="route.fullPath != '/'"/>
   <div class="photo">
     <img src="img/photo.jpg" alt="photo.jpg">
   </div>
@@ -73,9 +74,13 @@ import { AnFilledGithub } from '@kalimahapps/vue-icons';
 import gsap from 'gsap';
 import CSSPlugin from 'gsap/CSSPlugin';
 import { onMounted } from 'vue';
+import BackBtn from '../components/BackBtn.vue';
+import { useRoute } from 'vue-router';
+
+
 
 gsap.registerPlugin(CSSPlugin)
-
+const route = useRoute()
 onMounted(() => {
   gsap.fromTo('.photo',{x:-300 , scale:0, duration: 3},{x:0, scale:1})
   gsap.fromTo('.pres',{x:500 , scale:0, duration: 3 },{x:0, scale:1, delay:0.5})
@@ -89,17 +94,15 @@ onMounted(() => {
 @media screen and (max-width:500px) {
   
   .cv{
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 5px;
     font-family: 'jersey';
+    position: relative;
     .photo{
-      width: 150px;
       height: 150px;
       align-self: flex-end;
       margin-top: 50px;
@@ -153,11 +156,7 @@ onMounted(() => {
         p{
           margin-left: 20px;
         }
-        .adress{
-          .icon{
-            
-          }
-        }
+        
         .icon{
         color: goldenrod;
           
@@ -213,10 +212,128 @@ onMounted(() => {
     }
   }
 }
+@media screen and (max-width: 1000px) {
+  .cv{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    font-family: 'jersey';
+    .photo{
+      height: 150px;
+      align-self: center;
+      margin-top: 50px;
+      margin-right: 50px;
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+    .pres{
+      width: 80vw;
+      margin-top: 50px;
+      align-self: center;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-family: 'jersey';
+      background: goldenrod;
+      border-radius: 50px;
+      margin-left: 50px;
+      box-shadow:  41px 41px 82px #bebebe,
+                  -41px -41px 82px #ffffff;
+      h1{
+        font-size: 2rem;
+      }
+      span{
+        font-size: 1.5rem;
+        
+      }
+      p{
+        text-wrap: balance;
+        
+      }
+  
+    }
+    .contact{
+      padding: 20px;
+      align-self: center;
+      .contain{
+        display: flex;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.267);
+        margin-left: 60px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        align-items: center;
+        box-shadow:  5px 5px 10px #bebebe,
+               -5px -5px 10px #ffffff;
+        p{
+          margin-left: 20px;
+        }
+        .icon{
+        color: goldenrod;
+          
+        }
+      }
+    }
+    .xpContain{
+      align-self: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      .containeur{
+        max-width: 80vw;
+        background: rgba(128, 128, 128, 0.438);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow:  15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+      }
+      h2{
+          align-self: center;
+          margin: 20px;
+          font-size: 2rem;
+        }
+      p, span, h3{
+        align-self: flex-start;
+        margin: 10px;
+      }
+      ul{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        li{
+          align-self: flex-start;
+          list-style: none;
+        }
+      }
+      .diplome{
+        display: flex;
+        flex-direction: column;
+        h2, p, span{
+          text-align: left;
+        }
+      }
+      .poste{
+        text-align: left;
+        margin: 30px;
+      }
+    }
+  }
+
+}
 @media  screen and (min-width: 1000px) {
   .cv{
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding: 200px;
   display: grid;
   grid-template: 4/3;

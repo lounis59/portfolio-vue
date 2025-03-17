@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CV from '@/views/CV.vue'
+import Competences from '@/views/Competences.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/cv',
     name: 'cv view',
     component: CV
+  },
+  {
+    path: '/Competence',
+    name: 'competence',
+    component: Competences
   }
 ]
 

@@ -36,7 +36,7 @@ const samouraiMove = (bool) => {
      onUpdate:() => {
        document.querySelector('.samourai').setAttribute("src" , "img/samourai/Idle.png")
    }})
-   } else if (screenSizeW >= 1000) {
+   } else if (screenSizeW >= 500) {
 
     for (let index = 0; index < 29; index++) {
         timeline.from('.samourai',{
