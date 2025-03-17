@@ -5,6 +5,10 @@
     </div>
     <div class="main">
       <p class="content opacity" v-if="visible">HABROUCHE Lounis</p>
+      <div class="containeurNav opacity" v-if="visible && route.fullPath != '/'" @click="goToHome">
+        <BxHomeAlt2/>
+        <p>Menu principale</p>
+      </div>
       <div class="containeurNav opacity" v-if="visible">
         <FlHeadsetVr/>
         <p>A propos</p>
@@ -36,7 +40,8 @@ import CSSPlugin from 'gsap/CSSPlugin';
 import { ReProfileLine } from '@kalimahapps/vue-icons';
 import { ClBook } from '@kalimahapps/vue-icons';
 import { FlHeadsetVr } from '@kalimahapps/vue-icons';
-import { useRouter } from 'vue-router';
+import { BxHomeAlt2 } from '@kalimahapps/vue-icons';
+import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import samouraiMove from '@/pipe/samourai';
 
@@ -44,7 +49,7 @@ import samouraiMove from '@/pipe/samourai';
 gsap.registerPlugin(CSSPlugin)
 const router = useRouter()
 const visible = ref(false)
-const store = useStore()
+const route = useRoute()
 const show = () => {
    console.log(visible.value);
    
@@ -72,7 +77,9 @@ const goComp = () => {
   router.push('/Competence')
   samouraiMove(true)
 }
-
+const goToHome = () => {
+  router.push('/')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -119,6 +126,7 @@ const goComp = () => {
     background: rgba(79, 79, 80, 0.705);
     border-radius: 5px;
     margin: 10px;
+    align-items: center;
     cursor: pointer;
     p{
       margin-left: 10px;
