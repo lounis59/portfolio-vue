@@ -137,6 +137,9 @@ onMounted(() => {
   overflow: hidden;
   .containeur{
     cursor: pointer;
+    min-width: min-content;
+    position:relative;
+    padding: 50px;
   }
   img{
     width: 150px;
@@ -160,11 +163,13 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 100%;
     max-height: 200px;
     overflow: hidden;
-    top: 45%;
-    left: 40%;
-    scale: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  
     
     .iconsContaineur{
       

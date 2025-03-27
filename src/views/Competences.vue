@@ -64,16 +64,55 @@ import CSSPlugin from 'gsap/CSSPlugin';
 import { onMounted } from 'vue';
 
 gsap.registerPlugin(CSSPlugin)
-
+const tl = gsap.timeline()
 const route = useRoute()
+gsap.registerEffect({
+    name:'startLvl',
+    effect: (target) => {
+        return gsap.fromTo(target,
+    {
+        borderLeftWidth:"0px" ,borderTopWidth:"0px",borderRightWidth:"0px", borderLeftColor: "transparent",borderTopColor: "transparent",borderRightColor: "transparent"
+    },
+    {
+        borderLeftWidth: "5px" ,borderTopWidth: "5px",borderRightWidth: "5px",delay:1.2
+    }
+   )
+    }
+})
+gsap.registerEffect({
+    name:'lvl1',
+    effect: (target) => {
+        return gsap.to(target, {borderLeftColor:"blue"})
+    }
+})
+gsap.registerEffect({
+    name:'lvl2',
+    effect: (target) => {
+        return gsap.to(target, {borderLeftColor:"blue" , borderTopColor:"blue"})
+    }
+})
+gsap.registerEffect({
+    name:'lvl3',
+    effect: (target) => {
+        return gsap.to(target, {borderLeftColor:"blue" , borderTopColor:"blue",borderRightColor:"blue"})
+    }
+})
 onMounted(() => {
     console.log('tla');
     
-    gsap.fromTo('.front',{x:500 , scale:0 , opacity:0},{
+    gsap.fromTo('.front',{x:1000  , opacity:0},{
         x:0 , scale:1 ,duration:2 ,opacity:1
     })
-    gsap.fromTo('.back',{x:-500,scale:0,opacity:0},{x:0 , duration:2  , delay:1 ,scale:1,opacity:1}
+    gsap.fromTo('.back',{x:-1000,opacity:0},{x:0 , duration:2  , delay:1 ,scale:1,opacity:1}
     )
+   tl.add(gsap.effects.startLvl('.circle'))
+   .add(gsap.effects.lvl3('.vuelvl'))
+    .add(gsap.effects.lvl2('.angularLvl'), "+=0.2")
+    .add(gsap.effects.lvl1('.reactLvl'),"+=0.2")
+    .add(gsap.effects.lvl3('.nodelvl'),"+=0.2")
+    .add(gsap.effects.lvl3('.sqllvl'),"+=0.2")
+    .add(gsap.effects.lvl2('.phplvl'),"+=0.2")
+    .add(gsap.effects.lvl2('.dockerlvl'),"+=0.2")
 })
 </script>
 
