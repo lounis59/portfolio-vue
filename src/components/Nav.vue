@@ -103,7 +103,7 @@ const goToHome = () => {
   opacity: 0;
   width: max-content;
   max-width: 130px;
-  height: 100vh;
+  min-height: 1000vh;
   padding: 30px;
   color: aliceblue;
   display: flex;
