@@ -99,11 +99,12 @@ const goToHome = () => {
 .main{
   position: fixed;
   left: 0;
+  top:0;
   background: rgb(15, 21, 48);
   opacity: 0;
   width: max-content;
   max-width: 130px;
-  min-height: 1000vh;
+  min-height: 100vh;
   padding: 30px;
   color: aliceblue;
   display: flex;
