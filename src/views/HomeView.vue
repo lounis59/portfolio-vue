@@ -24,7 +24,10 @@
       <div class="iconsContaineur">
         <FlContactCard class="icons"/>
         <p>Informations</p>
-
+      </div>
+      <div class="iconsContaineur" @click="goProjet">
+        <CaEarthEuropeAfrica class="icons"/>
+        <p>Projet</p>
       </div>
      </div>
    </div>
@@ -45,7 +48,7 @@ import { useStore } from 'vuex';
 import samouraiMove from '@/pipe/samourai';
 import { CdTools } from '@kalimahapps/vue-icons';
 import BackBtn from '../components/BackBtn.vue';
-
+import { CaEarthEuropeAfrica } from '@kalimahapps/vue-icons';
 
 
 
@@ -111,6 +114,10 @@ const goCv = () => {
 }
 const goComp = () => {
   router.push('/Competence')
+  samouraiMove(true)
+}
+const goProjet = () => {
+  router.push('/Projet')
   samouraiMove(true)
 }
 if (route.fullPath != '/') {}
