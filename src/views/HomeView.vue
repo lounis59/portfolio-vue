@@ -31,7 +31,7 @@
       </div>
      </div>
    </div>
-    <p class="message">Choisie ta route voyageur ! </p>
+    <p class="message">Choisis ta route voyageur ! </p>
 
   </div>
 </template>
@@ -142,9 +142,14 @@ onMounted(() => {
   flex-direction: column;
   padding-left:  100px;
   overflow: hidden;
+  background: url('../assets/cerisier-removebg-preview.png');
+  background-repeat: no-repeat;
+  background-position: -65% 53%;
+  background-size: 300px;
+
   .containeur{
     cursor: pointer;
-    min-width: min-content;
+    min-width: 100%;
     position:relative;
     padding: 50px;
   }
@@ -167,15 +172,18 @@ onMounted(() => {
   }
   .logoContaineur {
     position: absolute;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
-    max-height: 200px;
+    justify-content: center;
+    min-width: max-content;
+    height: 300px;
     overflow: hidden;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-60%,-50%);
+    
   
     
     .iconsContaineur{
@@ -183,7 +191,9 @@ onMounted(() => {
       color: goldenrod;
       font-size: 1rem;
       background: rgba(51, 53, 54, 0.527);
-      padding: 5px;
+      padding: 15px;
+      min-width: 80px;
+      min-height: 80px;
       border-radius: 5px;
       scale: 0;
       margin: 10px;
@@ -204,6 +214,8 @@ onMounted(() => {
 }
 @media screen and (min-width: 1000px) {
   .home{
+    background-position: 20% 45%;
+    background-size: 600px;
     h1{
       font-size: 7rem;
     }
@@ -219,6 +231,12 @@ onMounted(() => {
     }
     .message{
       font-size: 4rem;
+    }
+    .logoContaineur{
+      transform: translate(-50%,-50%);
+      .iconsContaineur{
+        width: 100px;
+      }
     }
   }
 }
