@@ -2,7 +2,7 @@
     <div class="mainComp">
         <BackBtn v-if="route.fullPath != '/'"/>
         <div class="containeur front">
-            <h2>Front-end</h2>
+            <h2>Skills</h2>
             <div class="competenceContaineur">
                 <div class="contain">
                     <AkVueFill class="icons vue"/>
@@ -19,11 +19,11 @@
                     <p>React</p>
                     <div class="circle reactLvl">XP</div>
                 </div>
-            </div>
-        </div>
-        <div class="containeur back">
-            <h2>Back-end</h2>
-            <div class="competenceContaineur">
+                <div class="contain">
+                    <CoBrandReact class="reactNative icons"/>
+                    <p>React native</p>
+                    <div class="circle reactNativeLvl">XP</div>
+                </div>
                 <div class="contain">
                     <DeNodejsPlainWordmark class="icons"/>
                     <p>Node Js</p>
@@ -103,16 +103,15 @@ onMounted(() => {
     gsap.fromTo('.front',{x:1000  , opacity:0},{
         x:0 , scale:1 ,duration:2 ,opacity:1
     })
-    gsap.fromTo('.back',{x:-1000,opacity:0},{x:0 , duration:2  , delay:1 ,scale:1,opacity:1}
-    )
    tl.add(gsap.effects.startLvl('.circle'))
-   .add(gsap.effects.lvl3('.vuelvl'))
-    .add(gsap.effects.lvl2('.angularLvl'), "+=0.2")
-    .add(gsap.effects.lvl1('.reactLvl'),"+=0.2")
-    .add(gsap.effects.lvl3('.nodelvl'),"+=0.2")
-    .add(gsap.effects.lvl3('.sqllvl'),"+=0.2")
-    .add(gsap.effects.lvl2('.phplvl'),"+=0.2")
-    .add(gsap.effects.lvl2('.dockerlvl'),"+=0.2")
+        .add(gsap.effects.lvl3('.vuelvl'))
+        .add(gsap.effects.lvl2('.angularLvl'), "+=0.2")
+        .add(gsap.effects.lvl2('.reactLvl'),"+=0.2")
+        .add(gsap.effects.lvl2('.reactNativeLvl'),"+=0.2")
+        .add(gsap.effects.lvl3('.nodelvl'),"+=0.2")
+        .add(gsap.effects.lvl3('.sqllvl'),"+=0.2")
+        .add(gsap.effects.lvl2('.phplvl'),"+=0.2")
+        .add(gsap.effects.lvl2('.dockerlvl'),"+=0.2")
 })
 </script>
 
@@ -145,7 +144,7 @@ onMounted(() => {
             justify-content: space-evenly;
             .contain{
                 display: flex;
-                justify-content: space-evenly;
+                justify-content: space-between;
                 align-items: center; 
                 margin: 20px;
                 position: relative;
@@ -167,15 +166,12 @@ onMounted(() => {
                     border-right: 5px blue solid;
 
                 }
-                .angularLvl , .dockerlvl{
+                .angularLvl , .dockerlvl,.reactLvl, .reactNativeLvl{
                     border: 5px solid transparent;
                     border-left: 5px blue solid;
                     border-top: 5px blue solid;   
                 }
-                .reactLvl{
-                    border: 5px solid transparent;
-                    border-left: 5px blue solid;
-                }
+                
                
                
                
@@ -187,10 +183,27 @@ onMounted(() => {
             .vue{
                 color: green;
             }
-            .readt{
+            .react{
                 color: rgb(4, 143, 207);
+            }
+            .reactNative{
+                color: rgb(4, 143, 207);
+                background-color: black;
+                border-radius: 50%;
+                padding: 5px;
             }   
         }
     }
+   }
+@media screen and (min-width: 768px) {
+    .competenceContaineur{
+        align-items: center;
+        .contain{
+            width: 60%;
+            padding: 10px;
+            justify-content: space-around !important;
+        }
+    }
+    
 }
 </style>

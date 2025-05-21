@@ -9,10 +9,6 @@
         <BxHomeAlt2/>
         <p>Menu principale</p>
       </div>
-      <div class="containeurNav opacity" v-if="visible">
-        <FlHeadsetVr/>
-        <p>A propos</p>
-      </div>
       <div class="containeurNav opacity" v-if="visible" @click="goCV">
         <ReProfileLine/>
         <p>C.V</p>
@@ -24,6 +20,10 @@
       <div class="containeurNav opacity" v-if="visible" @click="goComp">
         <ClBook/>
         <p>Compétence</p>
+      </div>
+      <div class="containeurNav opacity" v-if="visible">
+        <FlHeadsetVr/>
+        <p>A propos</p>
       </div>
       <AkCross @click="show" v-if="visible" class="content opacity btn"/>
     </div>

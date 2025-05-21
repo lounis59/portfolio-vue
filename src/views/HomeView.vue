@@ -21,7 +21,9 @@
         <BsJoystick class="icons"/>
         <p>Jeux</p>
       </div>
-      <div class="iconsContaineur">
+      <div class="iconsContaineur" @click="() => {
+        samouraiMove(true)
+        router.push('/A-propos')}">
         <FlContactCard class="icons"/>
         <p>Informations</p>
       </div>
@@ -73,7 +75,7 @@ const zoom = (statue) => {
 }
 const flowerRain = () => {
   const home = document.querySelector('.home')
-  if ( !home ) {
+  if ( !home || route.fullPath != '/') {
     return;
   } 
   for (let i = 0; i < 10; i++) {

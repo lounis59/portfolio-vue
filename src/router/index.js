@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import CV from '@/views/CV.vue'
 import Competences from '@/views/Competences.vue'
 import Projet from '@/views/Projet.vue'
+import Apropos from '@/views/Apropos.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/Projet',
     name: 'projet',
     component: Projet
+  },
+  {
+    path: '/A-propos',
+    name: 'a-propos',
+    component: Apropos
   }
 
 ]

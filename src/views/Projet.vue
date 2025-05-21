@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <BackBtn v-if="route.fullPath != '/'"/>
     <h1>Mes Projet</h1>
     <div class="containeurProjet">
       <div class="btn" @click="goCenter">
@@ -11,6 +12,10 @@
 </template>
 
 <script setup>
+import BackBtn from '../components/BackBtn.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute();
 const goCenter = () => {
   window.location.href = 'http://51.75.125.145:3000/'
 }
