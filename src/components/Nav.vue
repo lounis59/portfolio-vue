@@ -13,7 +13,10 @@
         <ReProfileLine/>
         <p>C.V</p>
       </div>
-      <div class="containeurNav opacity" v-if="visible">
+      <div class="containeurNav opacity" v-if="visible" @click="() => {
+        samouraiMove(true)
+        router.push('/A-propos')
+      }">
         <FlContactCard/>
         <p>info</p>
       </div>
@@ -21,10 +24,7 @@
         <ClBook/>
         <p>Compétence</p>
       </div>
-      <div class="containeurNav opacity" v-if="visible">
-        <FlHeadsetVr/>
-        <p>A propos</p>
-      </div>
+    
       <AkCross @click="show" v-if="visible" class="content opacity btn"/>
     </div>
   </div>
@@ -39,7 +39,6 @@ import gsap from 'gsap';
 import CSSPlugin from 'gsap/CSSPlugin';
 import { ReProfileLine } from '@kalimahapps/vue-icons';
 import { ClBook } from '@kalimahapps/vue-icons';
-import { FlHeadsetVr } from '@kalimahapps/vue-icons';
 import { BxHomeAlt2 } from '@kalimahapps/vue-icons';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
