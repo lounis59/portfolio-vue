@@ -29,9 +29,12 @@
 import BackBtn from '../components/BackBtn.vue'
 import { useRoute } from 'vue-router'
 import gsap from 'gsap';
+import CSSPlugin from 'gsap/CSSPlugin';
 import { onMounted } from 'vue';
 import { AnOutlinedGithub ,CoBrandGmail , BsPhoneFill} from '@kalimahapps/vue-icons';
+import animation_letter from '@/pipe/anime.js'
 
+gsap.registerPlugin(CSSPlugin)
 const route = useRoute();
 
 onMounted(() => {
@@ -40,22 +43,12 @@ Ancien chaudronnier soudeur, je me suis reconverti dans le développement.
 Je maîtrise Vue.js, Angular, React et React Native pour le front-end.
 Côté back-end, je travaille avec Node.js, Express et PHP.
 Je configure des CI/CD avec GitHub Actions et Docker, et je gère des VPS.
-Passionné d'informatique, je cherche toujours de nouveaux défis.`;
-
-    const presentationElement = document.querySelector('.presentation');
-    presentationElement.textContent = ''; // Clear the content before starting the typing effect
-
-    let i = 0;
-    const typingEffect = setInterval(() => {
-        if (i < text.length) {
-            presentationElement.textContent += text.charAt(i);
-            i++;
-        } else {
-            clearInterval(typingEffect);
-            // Animate the text with GSAP after typing is complete
-            
-        }
-    }, 30); // Ajustez la vitesse de frappe ici
+Passionné d'informatique, je cherche toujours de nouveaux défis.`
+    gsap.from('.containeur', { duration:2 , width:0 })
+    setTimeout(()=>{
+       animation_letter(text) 
+    },2000)
+    
 });
 </script>
 
@@ -72,6 +65,7 @@ Passionné d'informatique, je cherche toujours de nouveaux défis.`;
         font-family: 'jersey';
         .containeur{
             display: flex;
+            overflow: hidden;
             flex-direction: column;
             justify-content: center;
             align-items: center;

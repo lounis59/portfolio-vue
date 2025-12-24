@@ -33,7 +33,12 @@
   <div class="xpContain">
     <div class="diplome containeur">
       <h2>Diplome</h2>
-      <p>Tittre professionnel DEVELLOPPEUR WEB niveux 5 </p>
+      <p>Tittre professionnel Concepteur Développeur d'applications niveaux 6 </p>
+      <span>Sofip Roubaix 07/2025</span>
+    </div>
+    <div class="diplome containeur">
+      <h2>Diplome</h2>
+      <p>Tittre professionnel Développeur Web niveux 5 </p>
       <span>AFCI Villeneuve d'ascq 10/2024</span>
     </div>
     <div class="experience containeur">
@@ -146,13 +151,10 @@ onMounted(() => {
       .contain{
         display: flex;
         padding: 10px;
-        background: rgba(0, 0, 0, 0.267);
         margin-left: 60px;
         margin-bottom: 20px;
         border-radius: 5px;
         align-items: center;
-        box-shadow:  5px 5px 10px #bebebe,
-               -5px -5px 10px #ffffff;
         p{
           margin-left: 20px;
         }
@@ -172,13 +174,10 @@ onMounted(() => {
       align-items: flex-end;
       .containeur{
         max-width: 80vw;
-        background: rgba(128, 128, 128, 0.438);
         margin-top: 20px;
         margin-bottom: 20px;
         padding: 20px;
         border-radius: 10px;
-        box-shadow:  15px 15px 30px #bebebe,
-               -15px -15px 30px #ffffff;
       }
       h2{
           align-self: center;
@@ -265,13 +264,11 @@ onMounted(() => {
       .contain{
         display: flex;
         padding: 10px;
-        background: rgba(0, 0, 0, 0.267);
         margin-left: 60px;
         margin-bottom: 20px;
         border-radius: 5px;
         align-items: center;
-        box-shadow:  5px 5px 10px #bebebe,
-               -5px -5px 10px #ffffff;
+
         p{
           margin-left: 20px;
         }
@@ -290,13 +287,10 @@ onMounted(() => {
       align-items: center;
       .containeur{
         max-width: 80vw;
-        background: rgba(128, 128, 128, 0.438);
         margin-top: 20px;
         margin-bottom: 20px;
         padding: 20px;
         border-radius: 10px;
-        box-shadow:  15px 15px 30px #bebebe,
-               -15px -15px 30px #ffffff;
       }
       h2{
           align-self: center;
@@ -385,11 +379,9 @@ onMounted(() => {
     .contain{
       display: flex;
       padding: 10px;
-      background: rgba(0, 0, 0, 0.267);
       margin: 10px;
       border-radius: 5px;
-      box-shadow:  5px 5px 10px #bebebe,
-             -5px -5px 10px #ffffff;
+
       p{
         margin-left: 20px;
       }
@@ -410,12 +402,10 @@ onMounted(() => {
     justify-content: space-around;
     align-items: center;
     .containeur{
-      background: rgba(128, 128, 128, 0.438);
       margin: 20px;
       padding: 20px;
       border-radius: 10px;
-      box-shadow:  15px 15px 30px #bebebe,
-             -15px -15px 30px #ffffff;
+      
     }
     h2{
         align-self: center;
@@ -450,6 +440,10 @@ onMounted(() => {
   }
   
 }
+}
+.containeur , .contain{
+  background: rgba(146, 146, 146, 0.055);
+  box-shadow:  0px 0px 50px 5px #8b8b8b86;
 }
 
 </style>
