@@ -75,6 +75,7 @@ Passionné d'informatique, je cherche toujours de nouveaux défis.`
             border: 5px solid goldenrod;
             border-radius: 10px;
             margin-bottom: 50px;
+            box-shadow: 0px 0px 50px 20px rgb(133, 132, 132) ;
             h2{
                 font-size: 3rem;
                 margin: 20px;

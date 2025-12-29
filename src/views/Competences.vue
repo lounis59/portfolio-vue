@@ -100,9 +100,7 @@ gsap.registerEffect({
 onMounted(() => {
     console.log('tla');
     
-    gsap.fromTo('.front',{x:1000  , opacity:0},{
-        x:0 , scale:1 ,duration:2 ,opacity:1
-    })
+    gsap.from('.front',{  width:0 , height:0 , opacity:0 , duration:2})
    tl.add(gsap.effects.startLvl('.circle'))
         .add(gsap.effects.lvl3('.vuelvl'))
         .add(gsap.effects.lvl2('.angularLvl'), "+=0.2")
@@ -127,12 +125,14 @@ onMounted(() => {
     min-height: 100vh;
     font-family: 'jersey';
     .containeur{
-        width: 75%;
-        min-height: min-content;
+        width: 40%;
+        overflow: hidden;
+        height: min-content;
         padding: 20px;
         border: 5px solid goldenrod;
         border-radius: 10px;
         margin-bottom: 50px;
+        box-shadow: 0px 0px 50px 20px rgb(133, 132, 132) ;
         h2{
             font-size: 3rem;
             margin: 20px;
