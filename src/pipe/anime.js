@@ -1,8 +1,8 @@
-const animation_letter = (text) => {
+const animation_letter = (bool,text) => {
 
     const presentationElement = document.querySelector('.presentation');
     presentationElement.textContent = ''; // Clear the content before starting the typing effect
-
+    if (!presentation.value) return;
     let i = 0;
     const typingEffect = setInterval(() => {
         if (i < text.length) {

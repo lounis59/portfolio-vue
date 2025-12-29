@@ -8,11 +8,11 @@
 
      <img src="img/donjonPorte.png" alt="donjon.png" class="content door" >
      <div class="logoContaineur">
-      <div class="iconsContaineur" @click="goCv">
+      <div class="iconsContaineur" @click="nav('cv')">
         <ReProfileLine/>
         <p>C.V</p>
       </div>
-      <div class="iconsContaineur" @click="goComp">
+      <div class="iconsContaineur" @click="nav('Competence')">
         <CdTools class="icons"/>
         <p>Compétences</p>
 
@@ -27,7 +27,7 @@
         <FlContactCard class="icons"/>
         <p>Informations</p>
       </div>
-      <div class="iconsContaineur" @click="goProjet">
+      <div class="iconsContaineur" @click="nav('Projet')">
         <CaEarthEuropeAfrica class="icons"/>
         <p>Projet</p>
       </div>
@@ -107,9 +107,12 @@ const flowerRain = () => {
     }, (duration + delay) * 1000);
   }
 };
+const nav = (direction) => {
+  samouraiMove(true)
+  router.push(`/${direction}`)
+}
 
-
-const goCv = () => {
+/*const goCv = () => {
   samouraiMove(true)
   
   router.push('/cv')
@@ -121,7 +124,7 @@ const goComp = () => {
 const goProjet = () => {
   router.push('/Projet')
   samouraiMove(true)
-}
+}*/
 if (route.fullPath != '/') {}
 onMounted(() => {
   samouraiMove()
