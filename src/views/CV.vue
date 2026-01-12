@@ -1,449 +1,449 @@
 <template>
-<div class="cv">
-  <BackBtn v-if="route.fullPath != '/'"/>
-  <div class="photo">
-    <img src="img/photo.jpg" alt="photo.jpg">
-  </div>
-  <div class="pres">
-    <h1>HABROUCHE Lounis</h1>
-    <span>Développeur Full Stack</span>
-    <p>Passionné par le développement, j’ai obtenu mon titre de Développeur Web en octobre 2024 et je poursuis actuellement une formation de Concepteur Développeur Web pour approfondir mes compétences.
-    Je maîtrise les technologies Front-end avec Vue.js et Angular, ainsi que le Back-end avec Node.js (Express, JWT, etc.) et PHP. Je suis également à l’aise avec les bases de données SQL, la conteneurisation avec Docker, et l’écriture de tests avec Jest.
-    Curieux et rigoureux, je cherche à intégrer une équipe dynamique où je pourrai mettre à profit mes compétences et continuer à apprendre. 
-    </p>
-  </div>
-  <div class="contact">
-    <div class="tel contain">
-      <AkPhone class="icon"/>
-      <p>06.25.82.10.64</p>
-    </div>
-    <div class="mail contain">
-      <AnOutlinedMail class="icon"/>
-      <p>lounis.habrouche@gmail.com</p>
-    </div>
-    <div class="adress contain">
-      <AkHomeAlt1 class="icon"/>
-      <p>257/1 rue Jules Guesde 59150 Wattrelos</p>
-    </div>
-    <div class="git contain">
-      <AnFilledGithub class="icon"/>
-      <p>lounis59</p>
-    </div>
-  </div>
-  <div class="xpContain">
-    <div class="diplome containeur">
-      <h2>Diplome</h2>
-      <p>Tittre professionnel Concepteur Développeur d'applications niveaux 6 </p>
-      <span>Sofip Roubaix 07/2025</span>
-    </div>
-    <div class="diplome containeur">
-      <h2>Diplome</h2>
-      <p>Tittre professionnel Développeur Web niveux 5 </p>
-      <span>AFCI Villeneuve d'ascq 10/2024</span>
-    </div>
-    <div class="experience containeur">
-      <h2>Experience</h2>
-      <div class="poste">
-        <h3>Chaudronnier Soudeur 2019-2024</h3>
-        <ul>
-          <li>Conseption de piece (Auto cad)</li>
-          <li>Soudure (TIG , MIG , MAG)</li>
-          <li>Pliage</li>
-          <li>Decoupe</li>
-          <li>Etc ...</li>
-        </ul>
-      </div>
-      <div class="poste">
-        <h3>Metalier Soudeur 2018-2019</h3>
-      </div>
-      <div class="poste">
-        <h3>Serrurier Soudeur 2016-2018</h3>
-      </div>
-    </div>
+  <div class="cv-page">
+    <BackBtn v-if="route.fullPath !== '/'" />
     
-    <div>
-      <span></span>
+    <div class="cv-container">
+      <div class="cv-header">
+        <div class="profile-section">
+          <div class="profile-image">
+            <img src="img/photo.jpg" alt="Lounis Habrouche" />
+          </div>
+          <div class="profile-info">
+            <h1>HABROUCHE Lounis</h1>
+            <p class="role">Développeur Full Stack</p>
+            <p class="bio">
+              Passionné par le développement, j'ai obtenu mon titre de Développeur Web en octobre 2024 
+              et mon titre de Concepteur Développeur d'Applications en août 2025. Je maîtrise les 
+              technologies Front-end avec Vue.js et Angular, ainsi que le Back-end avec Node.js 
+              (Express, JWT) et PHP.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-grid">
+        <div class="cv-sidebar">
+          <div class="section contact-section">
+            <h2>Contact</h2>
+            <div class="contact-item">
+              <AkPhone class="icon" />
+              <span>06.25.82.10.64</span>
+            </div>
+            <div class="contact-item">
+              <AnOutlinedMail class="icon" />
+              <span>lounis.habrouche@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <AkHomeAlt1 class="icon" />
+              <span>Wattrelos, 59150</span>
+            </div>
+            <div class="contact-item">
+              <AnFilledGithub class="icon" />
+              <a href="https://github.com/lounis59" target="_blank">lounis59</a>
+            </div>
+          </div>
+
+          <div class="section skills-highlight">
+            <h2>Compétences clés</h2>
+            <div class="skill-tags">
+              <span class="tag">Vue.js</span>
+              <span class="tag">Angular</span>
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Docker</span>
+              <span class="tag">SQL</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Jest</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-main">
+          <div class="section">
+            <h2>Formation</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">Août 2025</div>
+              <div class="timeline-content">
+                <h3>Concepteur Développeur d'Applications</h3>
+                <p class="institution">SOFIP Roubaix - Niveau 6</p>
+                <p class="description">Obtention du titre professionnel en août 2025</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2024</div>
+              <div class="timeline-content">
+                <h3>Développeur Web</h3>
+                <p class="institution">AFCI Villeneuve d'Ascq - Niveau 5</p>
+                <p class="description">Obtention du titre professionnel en octobre 2024</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Expérience Professionnelle</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">2019 - 2024</div>
+              <div class="timeline-content">
+                <h3>Chaudronnier Soudeur</h3>
+                <ul class="experience-list">
+                  <li>Conception de pièces (AutoCAD)</li>
+                  <li>Soudure (TIG, MIG, MAG)</li>
+                  <li>Pliage et découpe de métaux</li>
+                  <li>Lecture de plans techniques</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2018 - 2019</div>
+              <div class="timeline-content">
+                <h3>Métallier Soudeur</h3>
+                <p class="description">Fabrication et installation d'éléments métalliques</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2016 - 2018</div>
+              <div class="timeline-content">
+                <h3>Serrurier Soudeur</h3>
+                <p class="description">Réalisation de travaux de serrurerie et soudure</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>À propos</h2>
+            <p class="about-text">
+              Après plusieurs années dans le secteur de la métallurgie, j'ai entrepris une reconversion 
+              professionnelle dans le développement web. J'ai obtenu mon titre de Développeur Web en octobre 2024, 
+              puis mon titre de Concepteur Développeur d'Applications en août 2025. Je maîtrise les technologies 
+              Front-end avec Vue.js et Angular, ainsi que le Back-end avec Node.js (Express, JWT) et PHP. 
+              Je suis également à l'aise avec les bases de données SQL, la conteneurisation avec Docker, 
+              et l'écriture de tests avec Jest.
+            </p>
+            <p class="about-text">
+              Curieux et rigoureux, je cherche à intégrer une équipe dynamique où je pourrai mettre à profit 
+              mes compétences et continuer à apprendre.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="compContain"></div>
-    
-  
-</div>
 </template>
 
 <script setup>
-import { AkPhone } from '@kalimahapps/vue-icons';
-import { AnOutlinedMail } from '@kalimahapps/vue-icons';
-import { AkHomeAlt1 } from '@kalimahapps/vue-icons';
-import { AnFilledGithub } from '@kalimahapps/vue-icons';
-import gsap from 'gsap';
-import CSSPlugin from 'gsap/CSSPlugin';
 import { onMounted } from 'vue';
-import BackBtn from '../components/BackBtn.vue';
 import { useRoute } from 'vue-router';
+import gsap from 'gsap';
+import BackBtn from '../components/BackBtn.vue';
+import {
+  AkPhone,
+  AnOutlinedMail,
+  AkHomeAlt1,
+  AnFilledGithub
+} from '@kalimahapps/vue-icons';
 
+const route = useRoute();
 
-
-gsap.registerPlugin(CSSPlugin)
-const route = useRoute()
 onMounted(() => {
-  gsap.fromTo('.photo',{x:-300 , scale:0, duration: 3},{x:0, scale:1})
-  gsap.fromTo('.pres',{x:500 , scale:0, duration: 3 },{x:0, scale:1, delay:0.5})
-  gsap.from('.contain',{x:-200,opacity:0,delay:1,stagger:0.5})
-  gsap.from('.containeur',{x:300,opacity:0,delay:3,stagger:0.5})
+  gsap.fromTo('.cv-header', {
+    opacity: 0,
+    y: 30
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
 
-})
+  gsap.fromTo('.section', {
+    opacity: 0,
+    y: 20
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.15,
+    ease: 'power2.out',
+    delay: 0.3
+  });
+});
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width:500px) {
-  
-  .cv{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-    font-family: 'jersey';
-    position: relative;
-    .photo{
-      height: 150px;
-      align-self: flex-end;
-      margin-top: 50px;
-      margin-right: 50px;
-      img{
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-      }
-    }
-    .pres{
-      width: 80vw;
-      margin-top: 50px;
-      align-self: flex-end;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      font-family: 'jersey';
-      background: goldenrod;
-      border-radius: 50px;
-      margin-left: 50px;
-      box-shadow:  41px 41px 82px #bebebe,
-                  -41px -41px 82px #ffffff;
-      h1{
-        font-size: 2rem;
-      }
-      span{
-        font-size: 1.5rem;
-        
-      }
-      p{
-        text-wrap: balance;
-        
-      }
-  
-    }
-    .contact{
-      padding: 20px;
-      align-self: flex-end;
-      .contain{
-        display: flex;
-        padding: 10px;
-        margin-left: 60px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        align-items: center;
-        p{
-          margin-left: 20px;
-        }
-        
-        .icon{
-        color: goldenrod;
-          
-        }
-      }
-    }
-    .xpContain{
-      align-self: flex-end;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: flex-end;
-      .containeur{
-        max-width: 80vw;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-radius: 10px;
-      }
-      h2{
-          align-self: center;
-          margin: 20px;
-          font-size: 2rem;
-        }
-      p, span, h3{
-        align-self: flex-start;
-        margin: 10px;
-      }
-      ul{
-        display: flex;
-        flex-direction: column;
-        margin-left: 20px;
-        li{
-          align-self: flex-start;
-          list-style: none;
-        }
-      }
-      .diplome{
-        display: flex;
-        flex-direction: column;
-        h2, p, span{
-          text-align: left;
-        }
-      }
-      .poste{
-        text-align: left;
-        margin: 30px;
-      }
-    }
-  }
-}
-@media screen and (max-width: 1000px) {
-  .cv{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-    font-family: 'jersey';
-    .photo{
-      height: 150px;
-      align-self: center;
-      margin-top: 50px;
-      margin-right: 50px;
-      img{
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-      }
-    }
-    .pres{
-      width: 80vw;
-      margin-top: 50px;
-      align-self: center;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      font-family: 'jersey';
-      background: goldenrod;
-      border-radius: 50px;
-      margin-left: 50px;
-      box-shadow:  41px 41px 82px #bebebe,
-                  -41px -41px 82px #ffffff;
-      h1{
-        font-size: 2rem;
-      }
-      span{
-        font-size: 1.5rem;
-        
-      }
-      p{
-        text-wrap: balance;
-        
-      }
-  
-    }
-    .contact{
-      padding: 20px;
-      align-self: center;
-      .contain{
-        display: flex;
-        padding: 10px;
-        margin-left: 60px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        align-items: center;
-
-        p{
-          margin-left: 20px;
-        }
-        .icon{
-        color: goldenrod;
-          
-        }
-      }
-    }
-    .xpContain{
-      align-self: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      .containeur{
-        max-width: 80vw;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-radius: 10px;
-      }
-      h2{
-          align-self: center;
-          margin: 20px;
-          font-size: 2rem;
-        }
-      p, span, h3{
-        align-self: flex-start;
-        margin: 10px;
-      }
-      ul{
-        display: flex;
-        flex-direction: column;
-        margin-left: 20px;
-        li{
-          align-self: flex-start;
-          list-style: none;
-        }
-      }
-      .diplome{
-        display: flex;
-        flex-direction: column;
-        h2, p, span{
-          text-align: left;
-        }
-      }
-      .poste{
-        text-align: left;
-        margin: 30px;
-      }
-    }
-  }
-
-}
-@media  screen and (min-width: 1000px) {
-  .cv{
+.cv-page {
   min-height: 100vh;
-  padding: 200px;
-  display: grid;
-  grid-template: 4/3;
-  font-family: 'jersey';
-  .photo{
-    grid-row: 1/2;
-    grid-column: 1/1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img{
+  padding: 8rem 2rem 4rem;
+  background: var(--bg-secondary);
 
-      width: 200px;
-      height: 300px;
-      border-radius: 10px;
-      box-shadow:  20px 20px 40px #bebebe,
-                  -20px -20px 40px #ffffff;
-    }
-  }
-  .pres{
-    grid-row: 1;
-    grid-column: 2/3;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-family: 'jersey';
-    background: goldenrod;
-    border-radius: 50px;
-    margin-left: 50px;
-    box-shadow:  41px 41px 82px #bebebe,
-                -41px -41px 82px #ffffff;
-    h1{
-      font-size: 5rem;
-    }
-    span{
-      font-size: 2.5rem;
-      
-    }
-    p{
-      text-wrap: balance;
-      font-size: 1.5rem;
-    }
-  }
-  .contact{
-    grid-row: 2;
-    grid-column: 1;
-    padding: 20px;
-    .contain{
-      display: flex;
-      padding: 10px;
-      margin: 10px;
-      border-radius: 5px;
+  .cv-container {
+    max-width: 1200px;
+    margin: 0 auto;
 
-      p{
-        margin-left: 20px;
+    .cv-header {
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+      .profile-section {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+
+        .profile-image {
+          width: 160px;
+          height: 160px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .profile-info {
+          h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+          }
+
+          .role {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+          }
+
+          .bio {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 700px;
+          }
+        }
       }
-      .icon{
-      color: goldenrod;
-        
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2rem;
+
+      .cv-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .section {
+          background: white;
+          border-radius: 12px;
+          padding: 2rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+          h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+          }
+        }
+
+        .contact-section {
+          .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+
+            .icon {
+              font-size: 1.25rem;
+              color: var(--accent);
+              flex-shrink: 0;
+            }
+
+            span, a {
+              font-size: 0.9rem;
+              word-break: break-word;
+            }
+
+            a {
+              color: var(--text-secondary);
+              text-decoration: none;
+              transition: color 0.3s ease;
+
+              &:hover {
+                color: var(--accent);
+              }
+            }
+          }
+        }
+
+        .skills-highlight {
+          .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            .tag {
+              padding: 0.5rem 1rem;
+              background: var(--bg-secondary);
+              border-radius: 20px;
+              font-size: 0.85rem;
+              color: var(--text-primary);
+              font-weight: 500;
+              border: 1px solid rgba(0, 0, 0, 0.08);
+              transition: var(--transition);
+
+              &:hover {
+                background: var(--accent);
+                color: white;
+                transform: translateY(-2px);
+              }
+            }
+          }
+        }
+      }
+
+      .cv-main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .section {
+          background: white;
+          border-radius: 12px;
+          padding: 2rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+          h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+          }
+
+          .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+            &:last-child {
+              border-bottom: none;
+              margin-bottom: 0;
+              padding-bottom: 0;
+            }
+
+            .timeline-date {
+              font-weight: 600;
+              color: var(--accent);
+              font-size: 0.95rem;
+            }
+
+            .timeline-content {
+              h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+              }
+
+              .institution {
+                font-weight: 500;
+                color: var(--text-secondary);
+                margin-bottom: 0.75rem;
+              }
+
+              .description {
+                color: var(--text-secondary);
+                line-height: 1.6;
+              }
+
+              .experience-list {
+                list-style: none;
+                padding-left: 0;
+
+                li {
+                  position: relative;
+                  padding-left: 1.5rem;
+                  color: var(--text-secondary);
+                  margin-bottom: 0.5rem;
+                  line-height: 1.6;
+
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0.6em;
+                    width: 6px;
+                    height: 6px;
+                    background: var(--accent);
+                    border-radius: 50%;
+                  }
+                }
+              }
+            }
+          }
+
+          .about-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
   }
-  .xpContain{
-    margin: 30px;
-    padding: 30px;
-    height: 100%;
-    grid-row: 2/4;
-    grid-column: 2/3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    .containeur{
-      margin: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      
-    }
-    h2{
-        align-self: center;
-        margin: 20px;
-        font-size: 3rem;
-      }
-    p, span, h3{
-      align-self: flex-start;
-      margin: 10px;
-      font-size: 2rem;
-    }
-    ul{
-      display: flex;
-      flex-direction: column;
-      margin-left: 20px;
-      li{
-        align-self: flex-start;
-        list-style: none;
-      }
-    }
-    .diplome{
-      display: flex;
-      flex-direction: column;
-      h2, p, span{
-        text-align: left;
-      }
-    }
-    .poste{
-      text-align: left;
-      margin: 30px;
-    }
-  }
-  
-}
-}
-.containeur , .contain{
-  background: rgba(146, 146, 146, 0.055);
-  box-shadow:  0px 0px 50px 5px #8b8b8b86;
 }
 
+@media (max-width: 1024px) {
+  .cv-page {
+    padding: 6rem 1.5rem 3rem;
+
+    .cv-container {
+      .cv-header {
+        padding: 2rem;
+
+        .profile-section {
+          grid-template-columns: 1fr;
+          text-align: center;
+
+          .profile-image {
+            margin: 0 auto;
+          }
+        }
+      }
+
+      .cv-grid {
+        grid-template-columns: 1fr;
+
+        .cv-main {
+          .section {
+            .timeline-item {
+              grid-template-columns: 1fr;
+              gap: 0.5rem;
+
+              .timeline-date {
+                margin-bottom: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

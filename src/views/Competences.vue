@@ -1,209 +1,363 @@
 <template>
-    <div class="mainComp">
-        <BackBtn v-if="route.fullPath != '/'"/>
-        <div class="containeur front">
-            <h2>Skills</h2>
-            <div class="competenceContaineur">
-                <div class="contain">
-                    <AkVueFill class="icons vue"/>
-                    <p>Vue 3</p>
-                    <div class="circle vuelvl">XP</div>
-                </div>
-                <div class="contain">
-                    <DeAngularjsPlain class="icons"/>
-                    <p>Angular</p>
-                    <div class="circle angularLvl">XP</div>
-                </div>
-                <div class="contain">
-                    <CoBrandReact class="react icons"/>
-                    <p>React</p>
-                    <div class="circle reactLvl">XP</div>
-                </div>
-                <div class="contain">
-                    <CoBrandReact class="reactNative icons"/>
-                    <p>React native</p>
-                    <div class="circle reactNativeLvl">XP</div>
-                </div>
-                <div class="contain">
-                    <DeNodejsPlainWordmark class="icons"/>
-                    <p>Node Js</p>
-                    <div class="circle nodelvl">XP</div>
-                </div>
-                <div class="contain">
-                    <DeAzuresqldatabasePlain class="icons"/>
-                    <p>SQL</p>
-                    <div class="circle sqllvl">XP</div>
-                </div>
-                <div class="contain">
-                    <CoBrandPhp class="icons"/>
-                    <p>PHP</p>
-                    <div class="circle phplvl">XP</div>
-                </div>
-                <div class="contain">
-                    <VsFileTypeDocker2 class="icons"/>
-                    <p>Docker</p>
-                    <div class="circle dockerlvl">XP</div>
-                </div>
+  <div class="competences-page">
+    <BackBtn v-if="route.fullPath !== '/'" />
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Mes Compétences</h1>
+        <p class="subtitle">Technologies et outils que je maîtrise</p>
+      </div>
+
+      <div class="skills-grid">
+        <div 
+          v-for="(skill, index) in skills" 
+          :key="skill.name"
+          class="skill-card"
+          :style="{ animationDelay: `${index * 0.1}s` }"
+        >
+          <div class="skill-header">
+            <div class="skill-icon" :style="{ background: skill.color }">
+              <component :is="skill.icon" />
             </div>
+            <div class="skill-info">
+              <h3>{{ skill.name }}</h3>
+              <div class="skill-level">
+                <div class="level-bar">
+                  <div 
+                    class="level-fill" 
+                    :style="{ width: skill.level + '%', background: skill.color }"
+                  ></div>
+                </div>
+                <span class="level-text">{{ getLevelText(skill.level) }}</span>
+              </div>
+            </div>
+          </div>
+          <p class="skill-description">{{ skill.description }}</p>
         </div>
+      </div>
+
+      <div class="additional-skills">
+        <h2>Autres compétences</h2>
+        <div class="tags-container">
+          <span v-for="tag in additionalSkills" :key="tag" class="tag">
+            {{ tag }}
+          </span>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script setup>
-import { AkVueFill } from '@kalimahapps/vue-icons';
-import { DeAngularjsPlain } from '@kalimahapps/vue-icons';
-import { CoBrandReact } from '@kalimahapps/vue-icons';
-import { DeNodejsPlainWordmark } from '@kalimahapps/vue-icons';
-import { DeAzuresqldatabasePlain } from '@kalimahapps/vue-icons';
-import BackBtn from '../components/BackBtn.vue';
-import { CoBrandPhp } from '@kalimahapps/vue-icons';
-import { VsFileTypeDocker2 } from '@kalimahapps/vue-icons';
+import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import gsap from 'gsap';
-import CSSPlugin from 'gsap/CSSPlugin';
-import { onMounted } from 'vue';
+import BackBtn from '../components/BackBtn.vue';
+import {
+  AkVueFill,
+  DeAngularjsPlain,
+  CoBrandReact,
+  DeNodejsPlainWordmark,
+  DeAzuresqldatabasePlain,
+  CoBrandPhp,
+  VsFileTypeDocker2
+} from '@kalimahapps/vue-icons';
 
-gsap.registerPlugin(CSSPlugin)
-const tl = gsap.timeline()
-const route = useRoute()
-gsap.registerEffect({
-    name:'startLvl',
-    effect: (target) => {
-        return gsap.fromTo(target,
-    {
-        borderLeftWidth:"0px" ,borderTopWidth:"0px",borderRightWidth:"0px", borderLeftColor: "transparent",borderTopColor: "transparent",borderRightColor: "transparent"
-    },
-    {
-        borderLeftWidth: "5px" ,borderTopWidth: "5px",borderRightWidth: "5px",delay:1.2
-    }
-   )
-    }
-})
-gsap.registerEffect({
-    name:'lvl1',
-    effect: (target) => {
-        return gsap.to(target, {borderLeftColor:"blue"})
-    }
-})
-gsap.registerEffect({
-    name:'lvl2',
-    effect: (target) => {
-        return gsap.to(target, {borderLeftColor:"blue" , borderTopColor:"blue"})
-    }
-})
-gsap.registerEffect({
-    name:'lvl3',
-    effect: (target) => {
-        return gsap.to(target, {borderLeftColor:"blue" , borderTopColor:"blue",borderRightColor:"blue"})
-    }
-})
+const route = useRoute();
+
+const skills = [
+  {
+    name: 'Vue.js',
+    icon: AkVueFill,
+    level: 90,
+    color: '#42b883',
+    description: 'Framework JavaScript progressif pour construire des interfaces utilisateur'
+  },
+  {
+    name: 'Node.js',
+    icon: DeNodejsPlainWordmark,
+    level: 85,
+    color: '#68a063',
+    description: 'Environnement d\'exécution JavaScript côté serveur'
+  },
+  {
+    name: 'SQL',
+    icon: DeAzuresqldatabasePlain,
+    level: 85,
+    color: '#0078d4',
+    description: 'Gestion et manipulation de bases de données relationnelles'
+  },
+  {
+    name: 'Angular',
+    icon: DeAngularjsPlain,
+    level: 75,
+    color: '#dd0031',
+    description: 'Framework complet pour développer des applications web'
+  },
+  {
+    name: 'React',
+    icon: CoBrandReact,
+    level: 75,
+    color: '#61dafb',
+    description: 'Bibliothèque JavaScript pour créer des interfaces utilisateur'
+  },
+  {
+    name: 'React Native',
+    icon: CoBrandReact,
+    level: 70,
+    color: '#61dafb',
+    description: 'Framework pour développer des applications mobiles natives'
+  },
+  {
+    name: 'PHP',
+    icon: CoBrandPhp,
+    level: 75,
+    color: '#777bb4',
+    description: 'Langage de script côté serveur pour le web'
+  },
+  {
+    name: 'Docker',
+    icon: VsFileTypeDocker2,
+    level: 70,
+    color: '#2496ed',
+    description: 'Plateforme de conteneurisation pour déployer des applications'
+  }
+];
+
+const additionalSkills = [
+  'Express.js',
+  'JWT',
+  'Jest',
+  'Git',
+  'GitHub Actions',
+  'CI/CD',
+  'VPS',
+  'AutoCAD',
+  'Responsive Design',
+  'RESTful APIs',
+  'Agile/Scrum'
+];
+
+const getLevelText = (level) => {
+  if (level >= 85) return 'Expert';
+  if (level >= 70) return 'Avancé';
+  if (level >= 50) return 'Intermédiaire';
+  return 'Débutant';
+};
+
 onMounted(() => {
-    console.log('tla');
-    
-    gsap.from('.front',{  width:0 , height:0 , opacity:0 , duration:2})
-   tl.add(gsap.effects.startLvl('.circle'))
-        .add(gsap.effects.lvl3('.vuelvl'))
-        .add(gsap.effects.lvl2('.angularLvl'), "+=0.2")
-        .add(gsap.effects.lvl2('.reactLvl'),"+=0.2")
-        .add(gsap.effects.lvl2('.reactNativeLvl'),"+=0.2")
-        .add(gsap.effects.lvl3('.nodelvl'),"+=0.2")
-        .add(gsap.effects.lvl3('.sqllvl'),"+=0.2")
-        .add(gsap.effects.lvl2('.phplvl'),"+=0.2")
-        .add(gsap.effects.lvl2('.dockerlvl'),"+=0.2")
-})
+  gsap.fromTo('.page-header', {
+    opacity: 0,
+    y: 30
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
+
+  gsap.fromTo('.skill-card', {
+    opacity: 0,
+    y: 30
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
+    delay: 0.3
+  });
+
+  gsap.fromTo('.additional-skills', {
+    opacity: 0,
+    y: 20
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    delay: 1
+  });
+});
 </script>
 
 <style lang="scss" scoped>
-.mainComp{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    max-width: 100vw;
-    min-height: 100vh;
-    font-family: 'jersey';
-    .containeur{
-        width: 40%;
-        overflow: hidden;
-        height: min-content;
-        padding: 20px;
-        border: 5px solid goldenrod;
-        border-radius: 10px;
-        margin-bottom: 50px;
-        box-shadow: 0px 0px 50px 20px rgb(133, 132, 132) ;
-        h2{
-            font-size: 3rem;
-            margin: 20px;
-        }
-        .competenceContaineur{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            .contain{
-                display: flex;
-                justify-content: space-between;
-                align-items: center; 
-                margin: 20px;
-                position: relative;
-                p{
-                    font-size: 1.5rem;
-                }
-                .circle{
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    padding: 5px;
-                    text-align: center;
-                    font-size: 1.3rem;
-                }
-                .vuelvl , .nodelvl , .sqllvl , .phplvl{
-                    border: 5px solid transparent;
-                    border-left: 5px blue solid;
-                    border-top: 5px blue solid;
-                    border-right: 5px blue solid;
+.competences-page {
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  background: var(--bg-secondary);
 
-                }
-                .angularLvl , .dockerlvl,.reactLvl, .reactNativeLvl{
-                    border: 5px solid transparent;
-                    border-left: 5px blue solid;
-                    border-top: 5px blue solid;   
-                }
-                
-               
-               
-               
-            }
-                        
-            .icons{
-                font-size: 2rem;
-            }
-            .vue{
-                color: green;
-            }
-            .react{
-                color: rgb(4, 143, 207);
-            }
-            .reactNative{
-                color: rgb(4, 143, 207);
-                background-color: black;
-                border-radius: 50%;
-                padding: 5px;
-            }   
-        }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+      }
     }
-   }
-@media screen and (min-width: 768px) {
-    .competenceContaineur{
-        align-items: center;
-        .contain{
-            width: 60%;
-            padding: 10px;
-            justify-content: space-around !important;
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+
+      .skill-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0;
+
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
+
+        .skill-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+          margin-bottom: 1rem;
+
+          .skill-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            svg {
+              font-size: 2rem;
+              color: white;
+            }
+          }
+
+          .skill-info {
+            flex: 1;
+
+            h3 {
+              font-size: 1.5rem;
+              margin-bottom: 0.75rem;
+              color: var(--primary);
+            }
+
+            .skill-level {
+              .level-bar {
+                height: 8px;
+                background: var(--bg-secondary);
+                border-radius: 4px;
+                overflow: hidden;
+                margin-bottom: 0.5rem;
+
+                .level-fill {
+                  height: 100%;
+                  border-radius: 4px;
+                  transition: width 1s ease-out 0.5s;
+                }
+              }
+
+              .level-text {
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                font-weight: 500;
+              }
+            }
+          }
+        }
+
+        .skill-description {
+          color: var(--text-secondary);
+          line-height: 1.6;
+          font-size: 0.95rem;
+        }
+      }
     }
-    
+
+    .additional-skills {
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--primary);
+        text-align: center;
+      }
+
+      .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+
+        .tag {
+          padding: 0.75rem 1.5rem;
+          background: var(--bg-secondary);
+          border-radius: 25px;
+          font-size: 0.95rem;
+          color: var(--text-primary);
+          font-weight: 500;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          transition: var(--transition);
+          cursor: default;
+
+          &:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .competences-page {
+    padding: 6rem 1rem 3rem;
+
+    .container {
+      .skills-grid {
+        grid-template-columns: 1fr;
+
+        .skill-card {
+          .skill-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+        }
+      }
+
+      .additional-skills {
+        padding: 2rem 1.5rem;
+      }
+    }
+  }
 }
 </style>
