@@ -69,7 +69,7 @@ const skills = [
   {
     name: 'Vue.js',
     icon: AkVueFill,
-    level: 90,
+    level: 85,
     color: '#42b883',
     description: 'Framework JavaScript progressif pour construire des interfaces utilisateur'
   },
