@@ -36,6 +36,31 @@
           </div>
         </div>
 
+        <div class="project-card featured">
+          <div class="project-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-icon">
+              <rect x="3" y="3" width="7" height="9" rx="1"/>
+              <rect x="14" y="3" width="7" height="5" rx="1"/>
+              <rect x="14" y="12" width="7" height="9" rx="1"/>
+              <rect x="3" y="16" width="7" height="5" rx="1"/>
+            </svg>
+          </div>
+          <div class="project-content">
+            <span class="project-tag">Dashboard</span>
+            <h2>CurtisBot</h2>
+            <p class="project-description">
+              Tableau de bord web pour suivre et gérer CurtisBot en toute simplicité,
+              avec une interface claire et accessible depuis n'importe quel navigateur.
+            </p>
+            <button class="btn-visit" @click="goDashboard">
+              <span>Voir le dashboard</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
         <div class="coming-soon-section">
           <div class="coming-soon-card">
             <div class="icon-container">
@@ -63,6 +88,10 @@ const route = useRoute();
 
 const goCenter = () => {
   window.open('http://51.75.125.145:3000/', '_blank');
+};
+
+const goDashboard = () => {
+  window.open('https://curtisbot.lounis-habrouche.fr', '_blank');
 };
 
 onMounted(() => {
@@ -156,6 +185,12 @@ onMounted(() => {
               max-width: 100%;
               height: auto;
               filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            }
+
+            .dashboard-icon {
+              width: 120px;
+              height: 120px;
+              color: var(--accent);
             }
           }
 
