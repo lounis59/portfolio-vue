@@ -52,6 +52,11 @@
               Tableau de bord web pour suivre et gérer CurtisBot en toute simplicité,
               avec une interface claire et accessible depuis n'importe quel navigateur.
             </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">SQL</span>
+            </div>
             <button class="btn-visit" @click="goDashboard">
               <span>Voir le dashboard</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
